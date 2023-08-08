@@ -238,7 +238,9 @@ Next, Cloud Build needs to be configured with a trigger resource. The trigger co
 
 First, navigate to the [Cloud Build triggers section of the Google Cloud Console](https://console.cloud.google.com/cloud-build/triggers) and click on 'Connect Repository'. Follow the wizard on the right to connect to github.com, authenticate Google's GitHub app, filter repositories based on your user name, find the forked repository called 'serverless', tick the box to accept the policy and connect your repository. Once completed you should see a connection confirmation message displayed. Now it's time to create the trigger.
 
-Now, hit 'Create Trigger' and create a new trigger. In the wizard, specify that the trigger should read configuration from the provided './cloudbuild.yaml' and **add all the substitutions** you used previously to trigger your build.
+Now, hit 'Create Trigger' and create a new trigger. In the wizard, specify that the trigger should read configuration from the provided './cloudbuild.yaml' and **add all the substitutions** you used previously to trigger your build. 
+
+**Note:** When using the "Autodetect" configuration option, there is no possibility to add substituiton variables through the UI. So make sure to specify the "Cloud Build configuration file (yaml or json)" option explicitly, and then continue to fill in the substition variables.
 
 ### Pushing some changes
 
