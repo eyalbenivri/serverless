@@ -5,12 +5,17 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/helloworlddan/tortune/tortune"
+	"github.com/helloworlddan/tortuneai/tortuneai"
 )
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
-		fmt.Fprintf(w, tortune.HitMe())
+		joke, err := tortuneai.HitMe("tell me a terrible dad joke", "eyalbenivri-playground")
+		if err != nil {
+			fmt.Fprintf(w, "error: %v\n", err)
+			return
+		}
+		fmt.Fprint(w, joke)
 	})
 
 	port := os.Getenv("PORT")
